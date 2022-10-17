@@ -4,6 +4,7 @@ import model.Author;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 public class AuthorRepository {
 
@@ -29,10 +30,10 @@ public class AuthorRepository {
         if (authorHashMap.containsKey(id)) {
             return authorHashMap.get(id);
         }
+
         throw new IllegalArgumentException();
 
     }
-
 
     private Long findMaxId() {
         if (authorHashMap.size() == 0) return 0L;

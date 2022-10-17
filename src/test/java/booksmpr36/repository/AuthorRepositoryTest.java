@@ -59,6 +59,8 @@ class AuthorRepositoryTest {
         authorRepository.creatAuthor(new Author());
         //when
         Author a = authorRepository.getAuthorById(0L);
+
+
         //then
         assertNotNull(a);
     }
