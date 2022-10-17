@@ -9,31 +9,36 @@ public class AuthorRepository {
 
     HashMap<Long, Author> authorHashMap = new HashMap<>();
 
-    public Author addAuthor(Author author){
-        author.setId(findMaxId() + 1L);
-        authorHashMap.put(author.getId(), author);
+    public Author creatAuthor(Author author) {
+        author.setId(findMaxId());
+        authorHashMap.put(findMaxId(), author);
 
         return author;
     }
 
-    public List<Author> getAllAuthors(){
-        return authorHashMap.values().stream().toList();
+    public List<Author> getAllAuthors() {
+        return authorHashMap.values()
+                .stream().toList();
     }
 
-    public Author updateAuthor(Long id, Author author){
-        Author authorToUpdate = authorHashMap.get(id);
-
-        if(!authorToUpdate.getFirstName().equals(author.getFirstName())){
-
-        }
-    }
-
-    public void deleteAuthor(Long id){
+    public void deleteAuthor(Long id) {
         authorHashMap.remove(id);
     }
 
-    private Long findMaxId(){
-        return authorHashMap.keySet().stream()
-                .mapToLong(v -> v).max().getAsLong();
+    public Author getAuthorById(Long id) {
+        if (authorHashMap.containsKey(id)) {
+            return authorHashMap.get(id);
+        }
+        throw new IllegalArgumentException();
+
     }
+
+
+    private Long findMaxId() {
+        if (authorHashMap.size() == 0) return 0L;
+        return authorHashMap.keySet().stream()
+                .mapToLong(u -> u).max().getAsLong() + 1;
+    }
+
+
 }

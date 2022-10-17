@@ -16,6 +16,6 @@ public class AuthorService {
     }
 
     public Author createAuthor(Author author){
-        return authorRepository.addAuthor(author);
+        return authorRepository.creatAuthor(author);
     }
 }
