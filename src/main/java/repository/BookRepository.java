@@ -7,7 +7,7 @@ import java.util.List;
 
 public class BookRepository {
 
-    HashMap<Long, Book> bookHashMap = new HashMap<>();
+    private HashMap<Long, Book> bookHashMap = new HashMap<>();
 
     public Book createBook(Book book) {
         book.setId(findMaxId());
@@ -19,7 +19,7 @@ public class BookRepository {
         if(bookHashMap.containsKey(id)){
             bookHashMap.remove(id);
         }
-        throw new IllegalArgumentException();
+         else throw new IllegalArgumentException();
     }
 
     public Book getBookById(Long id) {
@@ -36,15 +36,15 @@ public class BookRepository {
     public Book updateBook(Long id, Book updatedBook){
         Book bookToUpdate = getBookById(id);
 
-        if(!bookToUpdate.getPublisher().equals(updatedBook.getPublisher())){
+        if(updatedBook.getPublisher() != null ){
             bookToUpdate.setPublisher(updatedBook.getPublisher());
         }
 
-        if(!bookToUpdate.getTitle().equals(updatedBook.getTitle())){
+        if(updatedBook.getTitle() != null){
             bookToUpdate.setTitle(updatedBook.getTitle());
         }
 
-        if(bookToUpdate.getAuthor().getId().equals(updatedBook.getAuthor().getId())){
+        if(updatedBook.getAuthor() != null){
             bookToUpdate.setAuthor(updatedBook.getAuthor());
         }
 

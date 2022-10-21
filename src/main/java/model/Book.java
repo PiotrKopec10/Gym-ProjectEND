@@ -13,6 +13,8 @@ public class Book {
     private Author author;
     private String publisher;
 
+    public Book() {
+    }
 
     public Book(String title, LocalDate publishDate, BookType bookType, Author author) {
         this.title = title;

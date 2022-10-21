@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public class AuthorRepository {
 
-    HashMap<Long, Author> authorHashMap = new HashMap<>();
+    private HashMap<Long, Author> authorHashMap = new HashMap<>();
 
     public Author creatAuthor(Author author) {
         author.setId(findMaxId());
@@ -30,8 +30,7 @@ public class AuthorRepository {
         if (authorHashMap.containsKey(id)) {
             return authorHashMap.get(id);
         }
-
-        throw new IllegalArgumentException();
+        else throw new IllegalArgumentException();
 
     }
 

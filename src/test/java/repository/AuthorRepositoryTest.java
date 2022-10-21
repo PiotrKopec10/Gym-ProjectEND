@@ -11,7 +11,6 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@ExtendWith(MockitoExtension.class)
 class AuthorRepositoryTest {
 
     AuthorRepository authorRepository;
@@ -59,8 +58,6 @@ class AuthorRepositoryTest {
         authorRepository.creatAuthor(new Author());
         //when
         Author a = authorRepository.getAuthorById(0L);
-
-
         //then
         assertNotNull(a);
     }
