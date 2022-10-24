@@ -1,7 +1,7 @@
 package repository;
 
-import pl.edu.pjwstk.booksmpr.repository.model.Author;
-import pl.edu.pjwstk.booksmpr.repository.model.Book;
+import pl.edu.pjwstk.booksmpr.model.Author;
+import pl.edu.pjwstk.booksmpr.model.Book;
 import pl.edu.pjwstk.booksmpr.repository.model.enums.BookType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
