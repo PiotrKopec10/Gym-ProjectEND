@@ -1,4 +1,4 @@
-package model;
+package pl.edu.pjwstk.booksmpr.model;
 
 public class Author {
     private Long id;

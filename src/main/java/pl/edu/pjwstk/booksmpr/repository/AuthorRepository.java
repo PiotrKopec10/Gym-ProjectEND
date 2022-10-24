@@ -1,10 +1,9 @@
-package repository;
+package pl.edu.pjwstk.booksmpr.repository;
 
-import model.Author;
+import pl.edu.pjwstk.booksmpr.model.Author;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
 
 public class AuthorRepository {
 

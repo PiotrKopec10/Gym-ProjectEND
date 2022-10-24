@@ -1,6 +1,6 @@
-package model;
+package pl.edu.pjwstk.booksmpr.model;
 
-import model.enums.BookType;
+import pl.edu.pjwstk.booksmpr.repository.model.enums.BookType;
 
 import java.time.LocalDate;
 

@@ -1,11 +1,9 @@
-package booksmpr36.repository;
+package repository;
 
-import model.Author;
+import pl.edu.pjwstk.booksmpr.repository.model.Author;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
-import repository.AuthorRepository;
+import pl.edu.pjwstk.booksmpr.repository.AuthorRepository;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package model.enums;
+package pl.edu.pjwstk.booksmpr.repository.model.enums;
 
 public enum BookType {
     DRAMA,

@@ -1,10 +1,11 @@
 package repository;
 
-import model.Author;
-import model.Book;
-import model.enums.BookType;
+import pl.edu.pjwstk.booksmpr.repository.model.Author;
+import pl.edu.pjwstk.booksmpr.repository.model.Book;
+import pl.edu.pjwstk.booksmpr.repository.model.enums.BookType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import pl.edu.pjwstk.booksmpr.repository.BookRepository;
 
 import java.time.LocalDate;
 import java.util.List;
