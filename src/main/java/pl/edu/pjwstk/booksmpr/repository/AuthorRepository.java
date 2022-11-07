@@ -1,15 +1,18 @@
 package pl.edu.pjwstk.booksmpr.repository;
 
+import org.springframework.stereotype.Repository;
 import pl.edu.pjwstk.booksmpr.model.Author;
 
 import java.util.HashMap;
 import java.util.List;
 
+
+@Repository
 public class AuthorRepository {
 
     private HashMap<Long, Author> authorHashMap = new HashMap<>();
 
-    public Author creatAuthor(Author author) {
+    public Author createAuthor(Author author) {
         author.setId(findMaxId());
         authorHashMap.put(findMaxId(), author);
 
