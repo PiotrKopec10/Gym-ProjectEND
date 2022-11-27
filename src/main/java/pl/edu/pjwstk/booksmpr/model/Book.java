@@ -1,15 +1,21 @@
 package pl.edu.pjwstk.booksmpr.model;
 
-import pl.edu.pjwstk.booksmpr.repository.model.enums.BookType;
+import pl.edu.pjwstk.booksmpr.model.enums.BookType;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
 public class Book {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private LocalDate publishDate;
     private BookType bookType;
+    @OneToOne(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
     private Author author;
     private String publisher;
 
