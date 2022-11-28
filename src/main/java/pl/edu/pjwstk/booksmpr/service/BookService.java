@@ -7,18 +7,26 @@ import pl.edu.pjwstk.booksmpr.model.enums.BookType;
 import pl.edu.pjwstk.booksmpr.repository.BookRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookService {
 
     private BookRepository bookRepository;
+    private AuthorService authorService;
 
     @Autowired
-    public BookService(BookRepository bookRepository) {
+    public BookService(BookRepository bookRepository, AuthorService authorService) {
+        this.authorService = authorService;
         this.bookRepository = bookRepository;
     }
 
     public Book createBook(Book book) {
+//        if(book.getAuthor() != null) {
+//            if(authorService.getAuthorById(book.getAuthor().getId()) == null){
+//                book.setAuthor(authorService.createAuthor(book.getAuthor()));
+//            }
+//        }
         return bookRepository.save(book);
     }
 
@@ -27,21 +35,26 @@ public class BookService {
     }
 
     public Book getBookById(Long id) {
-        return bookRepository.getReferenceById(id);
+//bookRepository.getReferenceById(id);
+        Optional<Book> b = bookRepository.findById(id);
+        if (b.isPresent()) {
+            return b.get();
+        }
+        throw new IllegalArgumentException();
     }
 
     public Book updateBook(Long id, Book updatedBook) {
         Book bookToUpdate = getBookById(id);
 
-        if(updatedBook.getPublisher() != null ){
+        if (updatedBook.getPublisher() != null) {
             bookToUpdate.setPublisher(updatedBook.getPublisher());
         }
 
-        if(updatedBook.getTitle() != null){
+        if (updatedBook.getTitle() != null) {
             bookToUpdate.setTitle(updatedBook.getTitle());
         }
 
-        if(updatedBook.getAuthor() != null){
+        if (updatedBook.getAuthor() != null) {
             bookToUpdate.setAuthor(updatedBook.getAuthor());
         }
 
@@ -53,7 +66,7 @@ public class BookService {
         bookRepository.deleteById(id);
     }
 
-    public List<Book> findBooksByBookType(BookType bookType){
+    public List<Book> findBooksByBookType(BookType bookType) {
         return bookRepository.findBooksByBookType(bookType);
     }
 }

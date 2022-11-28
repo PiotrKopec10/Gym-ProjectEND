@@ -14,7 +14,7 @@ public class Book {
     private LocalDate publishDate;
     @Enumerated(EnumType.STRING)
     private BookType bookType;
-    @OneToOne(fetch = FetchType.LAZY,
+    @OneToOne(fetch = FetchType.EAGER,
             cascade = CascadeType.ALL)
     private Author author;
     private String publisher;
