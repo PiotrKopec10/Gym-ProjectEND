@@ -7,12 +7,12 @@ import java.time.LocalDate;
 
 @Entity
 public class Book {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private LocalDate publishDate;
+    @Enumerated(EnumType.STRING)
     private BookType bookType;
     @OneToOne(fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
