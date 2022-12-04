@@ -22,11 +22,13 @@ public class BookService {
     }
 
     public Book createBook(Book book) {
-//        if(book.getAuthor() != null) {
-//            if(authorService.getAuthorById(book.getAuthor().getId()) == null){
-//                book.setAuthor(authorService.createAuthor(book.getAuthor()));
-//            }
-//        }
+        if(book.getAuthor() != null){
+            if(book.getAuthor().getId() == null || authorService.getAuthorById(book.getAuthor().getId()) == null){
+                book.setAuthor(authorService.createAuthor(book.getAuthor()));
+            }else {
+                book.setAuthor(authorService.getAuthorById(book.getAuthor().getId()));
+            }
+        }
         return bookRepository.save(book);
     }
 
@@ -35,7 +37,7 @@ public class BookService {
     }
 
     public Book getBookById(Long id) {
-//bookRepository.getReferenceById(id);
+//        return bookRepository.getReferenceById(id);
         Optional<Book> b = bookRepository.findById(id);
         if (b.isPresent()) {
             return b.get();
