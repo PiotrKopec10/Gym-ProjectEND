@@ -11,9 +11,12 @@ import java.io.IOException;
 
 @RestController
 public class WeatherController {
+    private final WeatherService weatherService;
 
     @Autowired
-    WeatherService weatherService;
+    public WeatherController(WeatherService weatherService) {
+        this.weatherService = weatherService;
+    }
 
     @GetMapping("/weather/{city}")
     public ResponseEntity<String> getWeather(@PathVariable String city) throws IOException {

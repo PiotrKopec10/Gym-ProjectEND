@@ -8,7 +8,6 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.ResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.edu.pjwstk.booksmpr.model.dto.ResultCityDTO;
 import pl.edu.pjwstk.booksmpr.model.dto.TemperatureDTO;
 
 import java.io.IOException;
@@ -17,8 +16,12 @@ import java.time.LocalDateTime;
 @Service
 public class WeatherService {
 
+    private final CityService cityService;
+
     @Autowired
-    private CityService cityService;
+    public WeatherService(CityService cityService) {
+        this.cityService = cityService;
+    }
 
     public String getCurrentTemperature(String city) throws IOException {
         OkHttpClient client = new OkHttpClient();
@@ -29,7 +32,7 @@ public class WeatherService {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        if(coordinats[0].equals("0") && coordinats[1].equals("0")){
+        if (coordinats[0].equals("0") && coordinats[1].equals("0")) {
             throw new IllegalArgumentException();
         }
 
